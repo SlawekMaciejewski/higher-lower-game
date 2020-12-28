@@ -30,7 +30,7 @@ def formatted_text(data_A, data_B):
     )
     print(vs)
     print(
-        f"Agains B: {data_B['name']}, a {data_B['description']}, from {data_B['country']}."
+        f"Against B: {data_B['name']}, a {data_B['description']}, from {data_B['country']}."
     )
 
 
