@@ -8,7 +8,7 @@ from game_data import data
 def generate_random_data():
     """
     Function generate one random data from data list. Return dict with keys:
-    'name', 'follower_count', 'description', 'country'
+    'name'-> str, 'follower_count'-> int, 'description'-> str, 'country-> str'
     """
     random_data = random.choice(data)
     return random_data
@@ -28,17 +28,51 @@ def formatted_text(data_A, data_B):
     )
 
 
+# def compare_answer(answer, data_A, data_B):
+#     score = 0
+#     if answer == 'a' and data_A['follower_count'] > data_B['follower_count']:
+#         score += 1
+#         data_A = data_B
+#         while data_A['name'] == data_B['name']:
+#             print("the same data")
+#             data_B = generate_random_data()
+#     elif answer == 'b' and data_B['follower_count'] > data_A['follower_count']:
+#         score += 1
+#         data_A = data_B
+#     else:
+#         is_play = False
+#         return is_play
+
+
 score = 0
 is_play = True
-while is_play:
-    data_A = generate_random_data()
+data_A = generate_random_data()
+data_B = generate_random_data()
+while data_A['name'] == data_B['name']:
+    print("the same data")
     data_B = generate_random_data()
-    while data_A['name'] == data_B['name']:
-        print("the same data")
-        data_B = generate_random_data()
-    # print(data_A)
-    # print(data_B)
+# print(data_A)
+# print(data_B)
+while is_play:
+    clear()
+    print(logo)
+    print(f"Your score is {score}")
     formatted_text(data_A, data_B)
     answer = input("Who has more followers, type 'A' or 'B': ").lower()
-    print(answer)
-    is_play = False
+    #compare_answer(answer, data_A, data_B)
+    if answer == 'a' and data_A['follower_count'] > data_B['follower_count']:
+        score += 1
+        data_A = data_B
+        data_B = generate_random_data()
+        while data_A['name'] == data_B['name']:
+            print("the same data")
+            data_B = generate_random_data()
+    elif answer == 'b' and data_B['follower_count'] > data_A['follower_count']:
+        score += 1
+        data_A = data_B
+        data_B = generate_random_data()
+        while data_A['name'] == data_B['name']:
+            print("the same data")
+            data_B = generate_random_data()
+    else:
+        is_play = False
