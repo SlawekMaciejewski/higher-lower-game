@@ -7,7 +7,7 @@ from game_data import data
 # generate random data
 def generate_random_data():
     """
-    Function generate random data from data list. Return list of dicts with keys:
+    Function generate random data from data list. Returns a list of dicts with keys:
     'name'-> str, 'follower_count'-> int, 'description'-> str, 'country-> str'
     """
     random_data_A = random.choice(data)
@@ -23,7 +23,7 @@ def generate_random_data():
 def formatted_text(data_A, data_B):
     """
     Function print formatted questions from random data and pass it to compare them. 
-    Return None.
+    Returns None.
     """
     print(
         f"Compare A: {data_A['name']}, a {data_A['description']}, from {data_A['country']}."
@@ -38,7 +38,7 @@ def formatted_text(data_A, data_B):
 def compare_answer(answer, data_A, data_B):
     """ 
     The function takes three attributes 'answer' -> str, 'data_A' -> dict, 'data_B' -> dict.
-    Function return True or False. 
+    Function returns True or False. 
     """
     if answer == 'a' and data_A['follower_count'] > data_B['follower_count']:
         return True
@@ -52,6 +52,7 @@ def compare_answer(answer, data_A, data_B):
 def game():
     score = 0
     is_play = True
+    # The first draw of data to compare
     questions = generate_random_data()
     data_A = questions[0]
     data_B = questions[1]
