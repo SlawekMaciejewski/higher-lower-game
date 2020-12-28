@@ -70,6 +70,7 @@ def game():
                 data_B = generate_random_data()[0]
         else:
             is_play = False
+            print(f"Sorry, that's wrong. Final score: {score}")
 
 
 game()
